@@ -7,28 +7,35 @@
 //
 
 #include <iostream>
+#include <cmath>
 using namespace std;
 
-struct Arr{
-    int length;
-    int breath;
+//
+//struct Arr{
+//    int length;
+//    int breath;
+//};
+
+
+int arrBinary(int k){
+    int l, h, mid;
+    int arr[] = {1,2,3,4,5,6,7,8,9};
+    l = 0;
+    h = (sizeof(arr)/sizeof(int)) - 1;
+    while(l<=h){
+        mid = floor((l + h)/2);
+        if(arr[mid] == k){
+            return mid;
+        }else if(arr[mid] < k){
+             l = mid + 1;
+        }else{
+             h = mid - 1;
+        }
+    }
+    return -1;
 };
 
 int main() {
-//    struct Arr *p;
-//    p=new struct Arr;
-//    p->length=12;
-//    p->breath=23;
-//    cout<<p->length<<endl<<p->breath<<endl;
-    
-//
-//    int *a = new int;
-//    *a=21;
-//    cout<<*a;
-//
-    int a , *b;
-    a=32;
-    b = &a;
-    cout<<*b;
+    cout<<"index: "<<arrBinary(6)<<endl;
     return 0;
 }
